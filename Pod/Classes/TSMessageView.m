@@ -447,6 +447,10 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
 
 - (CGFloat)updateHeightOfMessageView
 {
+    if (self.height > 0.0f) {
+        return self.height;
+    }
+
     CGFloat currentHeight;
     CGFloat screenWidth = self.viewController.view.bounds.size.width;
     CGFloat padding = [self padding];
