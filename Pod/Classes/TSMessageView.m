@@ -17,6 +17,8 @@
 
 static NSMutableDictionary *_notificationDesign;
 
+static CGFloat customHeight;
+
 @interface TSMessage (TSMessageView)
 - (void)fadeOutNotification:(TSMessageView *)currentView; // private method of TSMessage, but called by TSMessageView in -[fadeMeOut]
 @end
@@ -61,6 +63,11 @@ static NSMutableDictionary *_notificationDesign;
 @implementation TSMessageView{
     TSMessageNotificationType notificationType;
 }
+
++ (void)setHeight:(CGFloat)height {
+    customHeight = height;
+}
+
 -(void) setContentFont:(UIFont *)contentFont{
     _contentFont = contentFont;
     [self.contentLabel setFont:contentFont];
@@ -447,8 +454,8 @@ canBeDismissedByUser:(BOOL)dismissingEnabled
 
 - (CGFloat)updateHeightOfMessageView
 {
-    if (self.height > 0.0f) {
-        return self.height;
+    if (customHeight > 0.0f) {
+        return customHeight;
     }
 
     CGFloat currentHeight;

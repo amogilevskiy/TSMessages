@@ -79,5 +79,6 @@ canBeDismissedByUser:(BOOL)dismissingEnabled;
 /** Use this method to load a custom design file */
 + (void)addNotificationDesignFromFile:(NSString *)file;
 
++ (void)setHeight:(CGFloat)height;
 
 @end
